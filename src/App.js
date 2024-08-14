@@ -26,6 +26,7 @@
 import React from 'react';
 import AddContact from './Event/component';
 import ContactList from './Event/contactlist';
+import ComponentA from './Ex_1';
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
       <h1>Login from</h1>
       <AddContact />
       <ContactList />
+      <ComponentA/>
     </div>
   );
 }

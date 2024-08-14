@@ -1,30 +1,21 @@
-import React, { useState } from 'react'
+import React, {useState, createContext} from 'react'; 
+import ComponentB from './Ex_2';
 
-const Signin = () => {
-    const [signedin, setSignedin] = useState(false)
+export const SendContext = createContext();
 
-    const handleSignin = () => {
-        setSignedin(true)
-    }
+function ComponentA(){
 
-    const handleSignout = () => {
-        setSignedin(false)
-    }
-  return (
-         <div>
-           { signedin ? ( 
-        <div>
-            <button type="button" onClick={handleSignout}>Sign Out</button>
-            <p>Welcome back, good to see you in here</p>
-        </div>) :
-        
-        (<div>
-            <button type="button"onClick={handleSignin}>Sign In</button>
-            <p>Please Sign in</p>
-        </div>)
-           }
-        </div>
-  )
+const [user, setUser] = useState("its kannan");
+
+return(
+
+<div className="box"> 
+    <h1>ComponentA</h1> 
+    <h2>{`Hello ${user}`} </h2> 
+       <SendContext.Provider value={user}> 
+          <ComponentB/>
+       </SendContext.Provider> 
+        </div> 
+        );
 }
-
-export default Signin;
+export default ComponentA;
